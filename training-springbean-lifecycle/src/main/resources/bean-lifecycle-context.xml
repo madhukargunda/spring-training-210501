@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-4.3.xsd" > <!-- default-init-method="init" default-destroy-method="destory" -->
+		
+		<bean id ="person" class="study.pattern.lifecycle.domain.Person" autowire="byName" > <!-- init-method="initializeTheDataAfterSettingAllProperties" destroy-method="releaseAllResources"> -->
+			<property name="firstName" value="madhu"/>
+			<property name="lastName" value="g"/>
+		</bean>
+		
+		<bean id="address" class="study.pattern.lifecycle.domain.Address" > <!-- init-method="afterPropertiesSet" destroy-method="destory" -->
+			<property name="city" value="SENGKANG"/>
+			<property name="country" value="SINGAPORE"/>
+			<property name="street" value="sengkang"/>
+		</bean>
+
+
+</beans>

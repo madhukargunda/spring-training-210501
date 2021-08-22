@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id="person"
+		class="study.pattern.collectionBeans.beans.Person">
+
+		<property name="firstName" value="johnDoe" />
+		<property name="lastName" value="d" />
+
+		<!-- List<Address> -->
+		<property name="address">
+			<list>
+				<ref bean="homeAddress" />
+				<ref bean="personalAddress" />
+			</list>
+		</property>
+
+		<property name="booksInterested">
+			<list>
+				<value>Java In Action</value>
+				<value>Microservices In Action</value>
+			</list>
+		</property>
+
+		<property name="examScore">
+			<set>
+				<value>A+</value>
+				<value>B+</value>
+			</set>
+		</property>
+
+		<property name="marks">
+			<map>
+				<entry key="maths" value="100" />
+				<entry key="science" value="200" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="homeAddress"
+		class="study.pattern.collectionBeans.beans.Address">
+		<property name="city" value="sengkang" />
+		<property name="state" value="SINGAPORE" />
+		<property name="pincode" value="541191" />
+	</bean>
+
+
+	<bean id="personalAddress"
+		class="study.pattern.collectionBeans.beans.Address">
+		<property name="city" value="tampanies" />
+		<property name="state" value="SINGAPORE" />
+		<property name="pincode" value="541191" />
+	</bean>
+</beans>
